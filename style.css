@@ -722,3 +722,81 @@ body, html {
     margin-top: 40px;
     color: #555;
 }
+
+/* ==== RESPONSIVE - max 768px ==== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .srch, .btn {
+        width: 90%;
+        border-radius: 5px;
+    }
+
+    .promo-box {
+        position: static;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .content {
+        padding: 60px 20px 0 20px;
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 38px;
+    }
+
+    .content h1 span {
+        font-size: 48px;
+    }
+
+    .gallery-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-card {
+        width: 90%;
+    }
+
+    .video-container video {
+        width: 100%;
+    }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .contact-form {
+        width: 90%;
+    }
+
+    .footer-top, .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
