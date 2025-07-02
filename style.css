@@ -725,6 +725,116 @@ body, html {
 }
 
 
+@media (max-width: 768px) {
+    /* VIDEO CONTENT: Acoperă tot ecranul pe mobil */
+    .video-content {
+        height: 100vh;
+        padding-top: 60px;
+    }
+
+    .promo-box {
+        position: static;
+        width: 90%;
+        margin: 20px auto;
+        right: auto;
+        top: auto;
+    }
+
+    .content {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 36px;
+        padding-left: 0;
+    }
+
+    .content h1 span {
+        font-size: 44px;
+    }
+
+    .par {
+        padding-left: 0;
+        font-size: 16px;
+    }
+
+    .cn {
+        margin-left: 0;
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu ul li {
+        margin: 10px 0;
+    }
+
+    .search {
+        flex-direction: column;
+        align-items: stretch;
+        width: 90%;
+    }
+
+    .srch {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .gallery-images {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image-card {
+        width: 90%;
+        margin: auto;
+    }
+
+    .video-container video {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .video-section {
+        margin: 20px 10px;
+        padding: 30px 10px;
+    }
+
+    .promo-box h2 {
+        font-size: 24px;
+    }
+
+    .promo-list li {
+        font-size: 12px;
+    }
+
+    .promo-btn {
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+
+
 
 
 
