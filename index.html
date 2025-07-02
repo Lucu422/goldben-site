@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>GoldBen - EELHOE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- VIDEO BACKGROUND -->
+    <div class="video-background">
+        <video autoplay loop muted playsinline>
+            <source src="video.mp4" type="video/mp4">
+            Browserul tău nu suportă video HTML5.
+        </video>
+    </div>
+
+    <div class="video-content">
+        <div class="main">
+            <div class="navbar">
+                <div class="icon">
+                    <img src="goldbenlogo.png" alt="Logo" class="logo-img">
+                </div>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">ACASĂ</a></li>
+                        <li><a href="despre.html">DESPRE</a></li>
+                        <li><a href="cumfunctioneaza.html">CUM FUNCȚIONEAZĂ?</a></li>
+                        <li><a href="recenzii.html">RECENZII</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+
+                <div class="search">
+                    <input class="srch" type="search" placeholder="Caută...">
+                    <a href="#"><button class="btn">Caută</button></a>
+                </div>
+            </div> 
+
+            <div class="content">
+                <h1>EELHOE – <br><span>Masca pentru puncte negre</span></h1>
+                <p class="par">
+                    Îți dorești un ten curat, fără imperfecțiuni?<br>
+                    Această mască inovatoare extrage punctele negre, reduce porii și lasă pielea netedă și proaspătă.<br>
+                    Cu ingrediente naturale și efect rapid, este aliatul ideal pentru un ten impecabil!
+                </p>
+
+                <button id="openOrderModal" class="cn">Comandă acum</button>
+
+                <!-- PROMO BOX -->
+                <div class="promo-box" id="openPromoModal">
+                    <h2>Ofertă Specială</h2>
+                    <p class="promo-subtitle">Doar pentru comenzile online de astăzi</p>
+                    <ul class="promo-list">
+                        <li><img src="iconsgift.png" alt=""> Reducere instant de <strong>35%</strong></li>
+                        <li><img src="iconsrocket.png" alt=""> Livrare în 1-2 ZILE</li>
+                        <li><img src="iconsshield.png" alt=""> drept de retur 14 zile</li>
+                        <li><img src="iconsleaf.png" alt=""> Formulă naturală</li>
+                    </ul>
+                    <button id="openOrderModal" class="cn">Comandă acum</button>
+                    <p class="promo-note">*Ofertă valabilă azi, în limita stocului.</p>
+                </div>
+
+                <!-- GALERIE -->
+                <div class="gallery">
+                    <h2>Rezultate vizibile</h2>
+                    <div class="gallery-images">
+                        <div class="image-card" onclick="openImageModal(1)">
+                            <img src="before-after1.jpeg" alt="Înainte și după">
+                            <p class="caption">Elimină punctele negre eficient</p>
+                        </div>
+                        <div class="image-card" onclick="openImageModal(2)">
+                            <img src="product-closeup.webp" alt="Produs EELHOE">
+                            <p class="caption">Curățare profundă a porilor</p>
+                        </div>
+                        <div class="image-card" onclick="openImageModal(3)">
+                            <img src="ingredients.jpg" alt="Ingrediente naturale">
+                            <p class="caption">Conține ingrediente naturale</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMULAR COMANDĂ POP-UP -->
+<div id="orderModal" class="modal">
+    <div class="modal-content large">
+    <span class="close">&times;</span>
+    <h2>Plasează comanda</h2>
+
+    <form id="orderForm">
+      <label>Nume și Prenume *</label>
+        <input type="text" name="nume" placeholder="Completează numele aici" required>
+
+      <label>Număr de telefon (pentru curier) *</label>
+        <input type="tel" name="telefon" placeholder="Completează numărul aici" required>
+
+      <label>Județ *</label>
+        <input type="text" name="judet" placeholder="Completează județul aici" required>
+
+      <label>Localitate, Comună sau Sat *</label>
+        <input type="text" name="localitatea" placeholder="Completează localitatea/comuna/satul" required>
+
+      <label>Stradă, număr, bloc, apartament *</label>
+        <input type="text" name="adresa" placeholder="Completează adresa completă" required>
+
+      <label>Cantitate *</label>
+        <div class="radio-group">
+        <label><input type="radio" name="cantitate" value="3 bucăți — 119,80 Lei" required> 3 bucăți — 119,80 Lei</label><br>
+        <label><input type="radio" name="cantitate" value="2 bucăți — 89,80 Lei" > 2 bucăți — 89,80 Lei</label><br>
+        <label><input type="radio" name="cantitate"  value="1 bucată — 69,80 Lei" > 1 bucată — 69,80 Lei</label>
+        </div>
+
+      <label>Livrare (1-2 zile lucrătoare) *</label>
+        <div class="radio-group">
+        <label><input type="radio" name="livrare" value="Livrare rapidă GLS — 7,00 Lei" required checked> Livrare rapidă GLS — 7,00 Lei</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Plasează comanda</button>
+    </form>
+    </div>
+</div>
+
+    <!-- MODAL PROMO -->
+    <div id="promoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('promoModal')">&times;</span>
+            <h2>Detalii Ofertă Specială</h2>
+            <p><strong>Preț standard:</strong> 129 RON</p>
+            <p><strong>Reducere aplicată:</strong> -35%</p>
+            <p><strong>Preț final:</strong> <span style="color:#cba253; font-size: 22px;"><strong>89.90 RON</strong></span></p>
+            <p>Oferta este valabilă doar pentru comenzi online realizate azi, în limita stocului disponibil.</p>
+            <p>Livrare rapidă în 1-2 ZILE, garanție de satisfacție 100% și ingrediente naturale certificate.</p>
+        </div>
+    </div>
+
+    <!-- MODALE IMAGINI CU IMAGINEA INCLUSĂ -->
+<div id="imageModal1" class="modal image-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('imageModal1')">&times;</span>
+        <img src="before-after1.jpeg" alt="Elimină punctele negre" class="modal-image">
+        <h2>Elimină punctele negre</h2>
+        <p>Masca acționează în profunzime pentru a extrage impuritățile și punctele negre, oferind un ten curat și neted.</p>
+    </div>
+</div>
+
+<div id="imageModal2" class="modal image-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('imageModal2')">&times;</span>
+        <img src="product-closeup.webp" alt="Curățare profundă" class="modal-image">
+        <h2>Curățare profundă</h2>
+        <p>Produsul pătrunde adânc în pori pentru a îndepărta excesul de sebum, murdăria și celulele moarte.</p>
+    </div>
+</div>
+
+<div id="imageModal3" class="modal image-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('imageModal3')">&times;</span>
+        <img src="ingredients.jpg" alt="Ingrediente naturale" class="modal-image">
+        <h2>Ingrediente naturale</h2>
+        <p>Conține ingrediente precum extract de bambus, aloe vera și ceai verde, potrivite pentru toate tipurile de ten.</p>
+    </div>
+</div>
+
+<section class="video-section">
+    <h2>Rezultate vizibile după utilizare</h2>
+    <p class="video-description">Urmărește transformarea tenului înainte și după aplicarea măștii noastre revoluționare.</p>
+    
+    <div class="video-container">
+        <video autoplay muted loop playsinline poster="preview.jpg">
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+
+
+    <!-- SCRIPT MODALE -->
+    <script>
+        const promoBtn = document.getElementById("openPromoModal");
+        promoBtn.onclick = () => {
+            document.getElementById("promoModal").style.display = "block";
+        }
+
+        function openImageModal(index) {
+            document.getElementById("imageModal" + index).style.display = "block";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll(".modal");
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+    <script>
+    const orderModal = document.getElementById("orderModal");
+    const openOrderBtn = document.getElementById("openOrderModal"); 
+    const closeBtns = document.querySelectorAll(".modal .close");
+
+    // Deschidere
+    if (openOrderBtn) {
+        openOrderBtn.onclick = () => {
+            orderModal.style.display = "block";
+        };
+    }
+
+    // Închidere
+    closeBtns.forEach(btn => {
+        btn.onclick = () => {
+            btn.closest(".modal").style.display = "none";
+        };
+    });
+
+    // Închidere când dai click pe fundal
+    window.onclick = function(event) {
+        if (event.target.classList.contains("modal")) {
+            event.target.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = {
+        nume: form.nume.value,
+        telefon: form.telefon.value,
+        judet: form.judet.value,
+        localitate: form.localitatea.value,
+        adresa: form.adresa.value,
+        cantitate: form.cantitate.value,
+        livrare: form.livrare.value
+    };
+
+    const sheetURL = "https://script.google.com/macros/s/AKfycbwJFX1wJDYCm1hghjiwzQc1WO7U9ZvhFYzuk9StVQvbrzW89A3e7MjYjQX3qsNZCOvb/exec";
+
+    fetch(sheetURL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    alert("Comanda a fost trimisă cu succes!");
+    form.reset();
+    document.getElementById("orderModal").style.display = "none";
+});
+</script>
+
+<footer class="custom-footer">
+    <div class="footer-top">
+    <a href="#" class="footer-link">Retur</a>
+    <a href="#" class="footer-link">Termeni și condiții</a>
+    <a href="#" class="footer-link">Politica de Confidențialitate</a>
+    </div>
+
+    <div class="footer-contact">
+    <h3>Contact</h3>
+    <p>Pentru orice întrebare sau reclamație, vă rugăm să ne contactați la:</p>
+    <a href="mailto:bengold433@gmail.com" class="email-link">bengold433@gmail.com</a>
+    <p>Program: Luni - Vineri</p>
+    </div>
+
+    <div class="footer-bottom">
+    <a href="https://reclamatiisal.anpc.ro/" target="_blank">
+    <img src="anpc11.png" alt="ANPC" class="footer-img">
+    </a>
+    <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank">
+    <img src="anpc22.png" alt="SAL" class="footer-img">
+    </a>
+</div>
+</footer>
+</body>
+</html>

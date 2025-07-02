@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+    <meta charset="UTF-8">
+    <title>Recenzii</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+        background: #fffefb;
+    }
+
+    h2 {
+        text-align: center;
+        color: #222;
+    }
+
+    .review-form, .reviews-list {
+        max-width: 700px;
+        margin: 30px auto;
+        background: #f6f2ec;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .review-form input, .review-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    .review-form button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #cba253;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .star-rating {
+        margin-top: 10px;
+    }
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 25px;
+        color: #ccc;
+        cursor: pointer;
+    }
+
+    .star-rating input:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+        color: gold;
+    }
+
+    .review-item {
+        background: white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        border-left: 4px solid #cba253;
+    }
+
+    .review-item strong {
+        font-size: 20px;
+        color: #333;
+    }
+
+    .review-item .stars {
+        color: gold;
+        margin-top: 5px;
+    }
+    </style>
+</head>
+<body>
+<div class="back-button-container">
+    <a href="index.html" class="back-button">← Înapoi la pagina principală</a>
+</div>
+
+    <h2>Lasă o recenzie</h2>
+
+    <div class="review-form">
+    <input type="text" id="reviewerName" placeholder="Numele tău">
+    <textarea id="reviewText" rows="4" placeholder="Scrie recenzia ta aici..."></textarea>
+
+    <div class="star-rating">
+        <input type="radio" name="rating" id="star5" value="5"><label for="star5">&#9733;</label>
+        <input type="radio" name="rating" id="star4" value="4"><label for="star4">&#9733;</label>
+        <input type="radio" name="rating" id="star3" value="3"><label for="star3">&#9733;</label>
+        <input type="radio" name="rating" id="star2" value="2"><label for="star2">&#9733;</label>
+        <input type="radio" name="rating" id="star1" value="1"><label for="star1">&#9733;</label>
+    </div>
+
+    <button onclick="submitReview()">Trimite recenzia</button>
+    </div>
+
+    <h2>Recenzii clienți</h2>
+    <div class="reviews-list" id="reviewsList">
+    <!-- Recenziile vor apărea aici -->
+    </div>
+
+    <script>
+    // Încarcă recenziile salvate
+    window.onload = function () {
+        loadReviews();
+    };
+
+    function submitReview() {
+        const name = document.getElementById('reviewerName').value.trim();
+        const text = document.getElementById('reviewText').value.trim();
+        const rating = document.querySelector('input[name="rating"]:checked')?.value;
+
+        if (!name || !text || !rating) {
+        alert("Te rugăm să completezi toate câmpurile și să alegi un rating.");
+        return;
+        }
+
+        const review = {
+        name,
+        text,
+        rating: parseInt(rating),
+        date: new Date().toLocaleDateString("ro-RO")
+        };
+
+        let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+      reviews.unshift(review); // cele noi sus
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+        loadReviews();
+
+      // Reset form
+        document.getElementById("reviewerName").value = "";
+        document.getElementById("reviewText").value = "";
+        document.querySelectorAll('input[name="rating"]').forEach(e => e.checked = false);
+    }
+
+    function loadReviews() {
+        const list = document.getElementById("reviewsList");
+        list.innerHTML = "";
+        const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+        reviews.forEach(r => {
+        const div = document.createElement("div");
+        div.className = "review-item";
+        div.innerHTML = `
+            <strong>${r.name}</strong> <span style="float:right;">${r.date}</span><br>
+            <div class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</div>
+            <p>${r.text}</p>
+        `;
+        list.appendChild(div);
+        });
+    }
+    </script>
+
+</body>
+</html>
